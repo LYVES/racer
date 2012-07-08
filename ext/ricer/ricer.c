@@ -506,7 +506,6 @@ void Init_ricer()
     
     Ricer = rb_define_module("Ricer");
     rb_ary_push(globals, Ricer);
-    rb_const_set(Ricer, rb_intern("VERSION"), rb_str_new_cstr("0.1.0"));
     rb_define_singleton_method(Ricer, "run", Ricer_run, 3);
     
     RicerStats = rb_define_module("Stats");
