@@ -1,8 +1,10 @@
-require "rake/extensiontask"
-
-Rake::ExtensionTask.new "ricer"
-
 task :default => :compile
+
+task :compile do
+  Dir.chdir File.expand_path("../ext/ricer", __FILE__)
+  system "ruby extconf.rb"
+  system "make"
+end
 
 task :clean do
   Dir.chdir File.expand_path("../ext/libuv", __FILE__)
@@ -12,5 +14,5 @@ task :clean do
 end
 
 task :irb => :compile do
-  system "ruby -I./lib -rricer -rirb -e 'IRB.start' -- --simple-prompt"
+  system "ruby -I./lib -I./ext -rricer -rirb -e 'IRB.start' -- --simple-prompt"
 end
