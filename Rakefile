@@ -5,6 +5,8 @@ Rake::ExtensionTask.new "ricer"
 task :default => :compile
 
 task :clean do
+  Dir.chdir File.expand_path("../ext/libuv", __FILE__)
+  system "make clean"
   Dir.chdir File.expand_path("../ext/ricer", __FILE__)
   system "rm -f *.o *.bundle *.a Makefile"
 end
