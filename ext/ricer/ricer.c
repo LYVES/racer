@@ -508,9 +508,8 @@ void Init_ricer()
     rb_ary_push(globals, Ricer);
     rb_define_singleton_method(Ricer, "run", Ricer_run, 3);
     
-    RicerStats = rb_define_module("Stats");
+    RicerStats = rb_define_module_under(Ricer, "Stats");
     rb_ary_push(globals, RicerStats);
-    rb_const_set(Ricer, rb_intern("Stats"), RicerStats);
     
     rb_define_singleton_method(RicerStats, "total_requests", RicerStats_total_requests, 0);
     
