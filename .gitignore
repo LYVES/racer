@@ -1,0 +1,8 @@
+tmp
+*.o
+*.a
+*.bundle
+Makefile
+Gemfile.lock
+*.gem
+*.log
